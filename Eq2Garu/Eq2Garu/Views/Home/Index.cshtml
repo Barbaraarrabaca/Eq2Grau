@@ -1,6 +1,15 @@
 ﻿@{
     //nesta zona escrevemos código C#
     ViewData["Title"] = "Eq. 2 Grau";
+
+    string resposta = "";
+    if (!string.IsNullOrEmpty(ViewBag.X1))
+    {
+        resposta = "As soluções da equação são: x1=" + ViewBag.X1 +
+        "x2=" + ViewBag.X2;
+    }
+
+
 }
 
 
@@ -11,20 +20,22 @@
 
 </div>
 
-<!-- envia tudo para o servidor (form)-->
+<!-- envia tudo para o servidor (form), name é a propriedade, identifica o contentor que leva o contentor(no servidor); no browser é o id /propriedade-->
 <form>
 <p>
 introduza, por favor os valores dos parâmetros da equação <br/>
 </p>
-<b>a:</b> <input type="text"/>
+<b>a:</b> <input type="text" name="A"/>
 <br />
 <b>b:</b>
-<input type="text" />
+    <input type="text" name="B" />
 <br />
 <b>c:</b>
-<input type="text" />
+    <input type="text" name="C" />
 <br />
 <input type="submit" value="Calcular"/>
 </form>
 
+@*vou recuperar aqui o valor da resposta, preparada nas linhas 8 e 9*@
+<h4>@resposta</h4>
 
